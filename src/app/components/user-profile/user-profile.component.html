@@ -1,0 +1,49 @@
+<h2>This is use profile component</h2>
+<!--! Interpolation -->
+<h4>Name : {{ name }} Status :{{ status }} Salary : {{ salary }}</h4>
+
+<!--! property binding -->
+
+<button [disabled]="isDisabled">Click me</button>
+
+<!--! event binding  & two way data binding-->
+<h3>Input Value : {{ inputVal }}</h3>
+<!-- <input type="text" [value]="inputVal" (input)="onChange($event)" /> -->
+<input type="text" [(ngModel)]="inputVal" />
+
+<!--! usecase of before angular 17 version that is called directive -->
+<div>
+  <ul>
+    <ng-container *ngFor="let user of users">
+      <ng-container *ngIf="user.salary > 10000; else elseBlock" >
+        <li>
+          <div>
+            {{ user.name }} {{ user.isSingle ? "single" : "coder" }}
+            {{ user.salary }}
+          </div>
+        </li>
+      </ng-container>
+      <ng-template #elseBlock>
+        <li> {{ user.name }} {{ user.isSingle ? "single" : "coder" }}
+          {{ user.salary }}</li>
+        </ng-template>
+      </ng-container>
+  </ul>
+</div>
+
+<hr/>
+<!--! now usecase is angular 17 version -->
+<div>
+  <ul>
+    @for (user of users; track user.name){
+    <li>
+      @if (user.salary > 11000) { Name - {{ user.name }} Salary -
+      {{ user.salary }} Status -
+      {{ user.isSingle ? "single" : "coder" }}
+      }@else { Name - {{ user.name }} Salary - Hidden Status -
+      {{ user.isSingle ? "single" : "coder" }}
+      }
+    </li>
+    }
+  </ul>
+</div>
