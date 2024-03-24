@@ -10,6 +10,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { User } from '../../../models/user';
 import { CountrycodePipe } from "../../pipes/countrycode.pipe";
+import { HighlightDirectiveDirective } from '../../directives/highlight-directive.directive';
 
 function formateName(value: string) {
   return `Hi ${value.toLocaleUpperCase()}`;
@@ -19,7 +20,7 @@ function formateName(value: string) {
     standalone: true,
     templateUrl: './user-profile.component.html',
     styleUrl: './user-profile.component.css',
-    imports: [FormsModule, NgFor, NgIf, CountrycodePipe]
+    imports: [FormsModule, NgFor, NgIf, CountrycodePipe, HighlightDirectiveDirective]
 })
 export class UserProfileComponent {
   // name = 'Gaurav ';

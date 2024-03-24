@@ -48,9 +48,9 @@
   </ul>
 </div> -->
 
-<h4>
+<h4 appHighlightDirective>
   Name - {{ name }} status- {{ isSingle ? "single" : "coder" }} salary
   {{ salary }}
 </h4>
-<h3>{{ phoneNum | countrycode}}</h3>
+<h3>{{ phoneNum | countrycode }}</h3>
 <button (click)="sendData()">Send Data</button>
