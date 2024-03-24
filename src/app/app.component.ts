@@ -16,14 +16,16 @@ export class AppComponent {
 
   users = [
     { name: 'ramesh', isSingle: true, salary: 60000 },
-    { name: 'suresh', isSingle: true, salary: 30000 },
-    { name: 'nitesh', isSingle: false, salary: 10000 },
+    // { name: 'suresh', isSingle: true, salary: 30000 },
+    // { name: 'nitesh', isSingle: false, salary: 10000 },
   ];
   recieveData(e: User) {
-    const index = this.users.findIndex(
-      (user) => e.name === user.name
-    );
-    console.log(index,"index")
+    const index = this.users.findIndex((user) => e.name === user.name);
+    console.log(index, 'index');
     this.users[index].salary = e.updateSalary;
+  }
+
+  onClear() {
+    this.users = [];
   }
 }
