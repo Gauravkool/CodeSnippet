@@ -1,2 +1,24 @@
 <h1>hello world {{ title }}</h1>
-<app-user-profile></app-user-profile>
+<!-- <app-user-profile username="ramesh" isSingle="true" salary="10000"></app-user-profile>
+<app-user-profile username="suresh" isSingle="false" salary="40000"></app-user-profile>
+<app-user-profile username="nitesh" isSingle="true" salary="50000"></app-user-profile> -->
+
+<app-user-profile
+  *ngFor="let u of users"
+  [username]="u.name"
+  [isSingle]="u.isSingle"
+  [salary]="u.salary"
+  (myEvent)="recieveData($event)"
+></app-user-profile>
+
+<hr />
+
+<ul>
+  @for (user of users; track user.name) {
+  <li>
+    Name : {{ user.name | titlecase }} Status :
+    {{ user.isSingle ? "single" : "coder" }} Salary :
+    {{ user.salary | currency:"INR"}}
+  </li>
+  }
+</ul>

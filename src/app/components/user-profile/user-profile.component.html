@@ -1,18 +1,18 @@
-<h2>This is use profile component</h2>
+<!-- <h2>This is use profile component</h2> -->
 <!--! Interpolation -->
-<h4>Name : {{ name }} Status :{{ status }} Salary : {{ salary }}</h4>
+<!-- <h4>Name : {{ name }} Status :{{ status }} Salary : {{ salary }}</h4> -->
 
 <!--! property binding -->
 
-<button [disabled]="isDisabled">Click me</button>
+<!-- <button [disabled]="isDisabled">Click me</button> -->
 
 <!--! event binding  & two way data binding-->
-<h3>Input Value : {{ inputVal }}</h3>
-<!-- <input type="text" [value]="inputVal" (input)="onChange($event)" /> -->
-<input type="text" [(ngModel)]="inputVal" />
+<!-- <h3>Input Value : {{ inputVal }}</h3> -->
+<!--! <input type="text" [value]="inputVal" (input)="onChange($event)" /> -->
+<!-- <input type="text" [(ngModel)]="inputVal" /> -->
 
 <!--! usecase of before angular 17 version that is called directive -->
-<div>
+<!-- <div>
   <ul>
     <ng-container *ngFor="let user of users">
       <ng-container *ngIf="user.salary > 10000; else elseBlock" >
@@ -29,11 +29,11 @@
         </ng-template>
       </ng-container>
   </ul>
-</div>
+</div> -->
 
-<hr/>
+<!-- <hr/> -->
 <!--! now usecase is angular 17 version -->
-<div>
+<!-- <div>
   <ul>
     @for (user of users; track user.name){
     <li>
@@ -46,4 +46,11 @@
     </li>
     }
   </ul>
-</div>
+</div> -->
+
+<h4>
+  Name - {{ name }} status- {{ isSingle ? "single" : "coder" }} salary
+  {{ salary }}
+</h4>
+<h3>{{ phoneNum | countrycode}}</h3>
+<button (click)="sendData()">Send Data</button>
