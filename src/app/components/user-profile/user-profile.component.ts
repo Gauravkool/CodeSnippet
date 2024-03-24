@@ -12,6 +12,7 @@ import {
   SimpleChanges,
   ViewChild,
   booleanAttribute,
+  input,
   numberAttribute,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -35,7 +36,9 @@ function formateName(value: string) {
     HighlightDirectiveDirective,
   ],
 })
-export class UserProfileComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+export class UserProfileComponent
+  implements OnInit, OnDestroy, OnChanges, AfterViewInit
+{
   // name = 'Gaurav ';
   // status = 'single';
   // salary = 40000;
@@ -52,13 +55,16 @@ export class UserProfileComponent implements OnInit, OnDestroy, OnChanges, After
   //   this.inputVal = value;
   // }
 
-  @Input({ alias: 'username' }) name: string = '';
+  // @Input({ alias: 'username' }) name: string = '';
+  name = input('', {
+    alias: 'username',
+  });
   @Input({ transform: booleanAttribute }) isSingle: boolean | undefined;
   @Input({ transform: numberAttribute }) salary: number | undefined;
   @Output() myEvent = new EventEmitter<User>();
   phoneNum: number = 9045349786;
   sendData() {
-    this.myEvent.emit({ name: this.name, updateSalary: 25000 });
+    this.myEvent.emit({ name: this.name(), updateSalary: 25000 });
   }
 
   @ViewChild('myHeading') heading?: ElementRef;
@@ -67,7 +73,7 @@ export class UserProfileComponent implements OnInit, OnDestroy, OnChanges, After
     // init propreties
     // dependency inject
     // event listener register
-    console.log('constructor called', this.name);
+    console.log('constructor called', this.name());
     console.log('constructor', this.heading?.nativeElement.textContent);
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -79,7 +85,7 @@ export class UserProfileComponent implements OnInit, OnDestroy, OnChanges, After
     // init propreties
     // api callig
     // event listener register
-    console.log('ngOnInit called', this.name);
+    console.log('ngOnInit called', this.name());
     console.log('ngOnInit', this.heading?.nativeElement.textContent);
   }
 

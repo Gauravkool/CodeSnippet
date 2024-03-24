@@ -3,7 +3,7 @@
 <app-user-profile username="suresh" isSingle="false" salary="40000"></app-user-profile>
 <app-user-profile username="nitesh" isSingle="true" salary="50000"></app-user-profile> -->
 
-<!-- <app-user-profile
+<app-user-profile
   *ngFor="let u of users"
   [username]="u.name"
   [isSingle]="u.isSingle"
@@ -11,7 +11,7 @@
   (myEvent)="recieveData($event)"
 ></app-user-profile>
 
-<button (click)="onClear()">Clear User</button> -->
+<button (click)="onClear()">Clear User</button> 
 
 <!-- <hr /> -->
 <!-- 
@@ -23,7 +23,7 @@
     {{ user.salary | currency:"INR"}}
   </li>
   }
-</ul> -->
+</ul>
 
 <!-- <app-joke></app-joke> -->
 <app-a></app-a>

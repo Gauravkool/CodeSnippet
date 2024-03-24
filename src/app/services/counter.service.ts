@@ -1,15 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Signal, computed, effect, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CounterService {
-  count: number = 0;
-  constructor() {}
+  count = signal(0);
+  doubleCount: Signal<number> = computed(() => this.count() * 2);
+  constructor() {
+    effect(() => {
+      console.log('count', this.count(), 'double', this.doubleCount());
+    });
+  }
   getCounter() {
-    return this.count;
+    return this.count();
   }
   incCounter() {
-    this.count = this.count + 1;
+    // this.count.set(5);
+    this.count.update((preCount) => {
+      return preCount + 1;
+    });
   }
 }
